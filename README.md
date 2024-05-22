@@ -49,8 +49,8 @@ sudo systemctl status jenkins
 ### **--- INSTALL JENKINS ON LINUX METHOD -2 ---**
 
 ```shell
-sudo apt update -y
-sudo apt install openjdk-11-jre -y
+sudo apt-get update
+sudo apt-get install fontconfig openjdk-17-jre
 wget https://get.jenkins.io/war-stable/2.452.1/jenkins.war
 java -jar jenkins.war --httpPort=8082
 ```
