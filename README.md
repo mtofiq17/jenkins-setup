@@ -51,7 +51,13 @@ sudo systemctl status jenkins
 ```shell
 sudo apt update -y
 sudo apt install openjdk-11-jre -y
-sudo wget https://updates.jenkins.io/download/war/2.387.3/jenkins.war
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+https://pkg.jenkins.io/debian binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
 java -jar jenkins.war --httpPort=8082
 ```
 ### **--- INSTALL JENKINS ON WINDOWS ---**
